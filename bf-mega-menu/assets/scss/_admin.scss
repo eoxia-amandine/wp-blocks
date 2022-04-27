@@ -1,0 +1,18 @@
+.block-editor-block-list__layout .wp-block-acf-bf-mega-menu .bf-block-mega-menu.is-admin .block-editor-inner-blocks {
+  border: 1px solid rgba(0,0,0,0.5);
+  padding: 1em;
+  border-radius: 6px;
+  position: relative;
+
+  &::before {
+    display: inline-block;
+    content: 'MEGA MENU';
+    position: absolute;
+    top: -9px;
+    left: 10px;
+    background: #fff;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 0 0.5em;
+  }
+}

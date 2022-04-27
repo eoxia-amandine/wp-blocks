@@ -1,0 +1,91 @@
+.block-editor-block-list__layout .wp-block-acf-bf-mega-menu .bf-block-mega-menu.is-admin .block-editor-inner-blocks {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  border-radius: 6px;
+  position: relative;
+}
+.block-editor-block-list__layout .wp-block-acf-bf-mega-menu .bf-block-mega-menu.is-admin .block-editor-inner-blocks::before {
+  display: inline-block;
+  content: "MEGA MENU";
+  position: absolute;
+  top: -9px;
+  left: 10px;
+  background: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 0 0.5em;
+}
+
+.bf-block-mega-menu__link-parent {
+  position: relative;
+}
+.bf-block-mega-menu__link-parent:hover > .bf-block-mega-menu {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+.bf-block-mega-menu__link-parent:hover > .wp-block-navigation-item__content::after {
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+}
+.bf-block-mega-menu__link-parent > .wp-block-navigation-item__content::after {
+  display: inline-block;
+  content: "";
+  width: 10px;
+  height: 6px;
+  background: url("./../images/angle-down.svg") no-repeat;
+  margin-left: 6px;
+}
+
+.bf-block-mega-menu:not(.is-admin) {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  top: 80px;
+  -webkit-box-shadow: 0 30px 40px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 30px 40px 0 rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  background: #fff;
+  padding: 1em;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transform: translateY(10px);
+  transform: translateY(10px);
+}
+.bf-block-mega-menu:not(.is-admin) .bf-block-mega-menu__container {
+  max-width: 1100px;
+  margin: auto;
+}
+.bf-block-mega-menu:not(.is-admin) .wp-block-navigation {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+}
+.bf-block-mega-menu:not(.is-admin) .wp-block-navigation .wp-block-navigation__container {
+  gap: 0.2em;
+}
+.bf-block-mega-menu:not(.is-admin) .wp-block-navigation .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content {
+  height: auto !important;
+  font-weight: 400 !important;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.bf-block-mega-menu:not(.is-admin) .wp-block-navigation .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content:hover {
+  opacity: 0.7;
+}
+.bf-block-mega-menu:not(.is-admin) .menu-title {
+  font-family: var(--wp--preset--font-family--audrey);
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.bf-block-mega-menu:not(.is-admin) .menu-title > a:hover {
+  opacity: 0.7;
+}
+
+body.admin-bar .bf-block-mega-menu {
+  top: 112px;
+}

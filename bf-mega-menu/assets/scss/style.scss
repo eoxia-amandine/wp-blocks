@@ -1,0 +1,81 @@
+@import "admin";
+
+.bf-block-mega-menu__link-parent {
+  position: relative;
+
+  &:hover {
+    > .bf-block-mega-menu {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    > .wp-block-navigation-item__content::after {
+      transform: scaleY(-1);
+    }
+  }
+
+  > .wp-block-navigation-item__content::after {
+    display: inline-block;
+    content: '';
+    width: 10px;
+    height: 6px;
+    background: url("./../images/angle-down.svg") no-repeat;
+    margin-left: 6px;
+  }
+}
+
+.bf-block-mega-menu:not(.is-admin) {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  top: 80px;
+  box-shadow: 0 30px 40px 0 rgba(0,0,0,0.15);
+  z-index: 1000;
+  background: #fff;
+  padding: 1em;
+  transition: all 0.2s ease-out;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+
+  .bf-block-mega-menu__container {
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  // Blocks navigation à l'intérieur du Mega Menu.
+  .wp-block-navigation {
+    align-items: start;
+
+    .wp-block-navigation__container {
+      gap: 0.2em;
+
+      > .wp-block-navigation-item {
+        > .wp-block-navigation-item__content {
+          height: auto !important;
+          font-weight: 400 !important;
+          transition: all 0.2s ease-out;
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
+
+  .menu-title {
+    font-family: var(--wp--preset--font-family--audrey);
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    > a:hover {
+      opacity: 0.7;
+    }
+  }
+}
+body.admin-bar .bf-block-mega-menu {
+  top: 112px;
+}
