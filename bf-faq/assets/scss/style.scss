@@ -1,7 +1,13 @@
 .bf-faq {
+  margin: 1em 0;
+
   .bf-faq__main-container {
     border-bottom: 1px solid rgba(0,0,0,0.8);
-    margin-bottom: 1em;
+    //margin-bottom: 1em;
+
+    &:first-child {
+      border-top: 1px solid rgba(0,0,0,0.8);
+    }
   }
 
   .bf-faq__question-container {
@@ -10,7 +16,7 @@
     align-items: center;
 
     .bf-faq__question {
-      padding: 0.5em 0;
+      padding: 0.8em 0;
       font-weight: 600;
       font-size: 18px;
       transition: opacity 0.2s ease-out;
@@ -28,14 +34,11 @@
       .bf-faq__question {
         opacity: 0.7;
       }
-      .bf-faq__question-plus {
-        transform: scale(1.1);
-      }
     }
   }
 
   .bf-faq__answer {
-    padding: 1em 0;
+    padding: 0 0 1em 0;
     transition: opacity 0.2s ease-out;
 
     > p:first-child {
