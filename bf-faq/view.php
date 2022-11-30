@@ -44,6 +44,3 @@ if ( have_rows( 'faq_list' ) ) : ?>
         <?php endwhile; ?>
     </div>
 <?php endif; ?>
-
-<?php
-bf_faq_generate_metadatas( get_field( 'faq_list' ) );

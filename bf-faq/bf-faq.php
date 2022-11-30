@@ -41,31 +41,46 @@ function bf_faq_load_json( $paths ) {
 }
 add_filter( 'acf/settings/load_json', 'bf_faq_load_json' );
 
-
-function bf_faq_generate_metadatas( $block_data ) {
-    if ( empty( $block_data ) ) {
+/**
+ * Generate Structured data for SEO
+ * @return void
+ */
+function bf_faq_generate_metadatas() {
+    global $post;
+    $blocks = parse_blocks( get_the_content() );
+    if ( empty( $blocks ) ) {
         return;
     }
 
-    add_action( 'wp_head', function() use ($block_data) {
-        $schema = array(
-            '@context'   => 'https://schema.org',
-            '@type'      => 'FAQPage',
-            'mainEntity' => array()
-        );
-        foreach( $block_data as $data ) {
+    $list_faq = array();
+    foreach ( $blocks as $block ) {
+        if ( $block['blockName'] == 'beflex/faq' ) {
+            $list_faq[] = $block['attrs']['data'];
+        }
+    }
+    if ( empty( $list_faq ) ) {
+        return;
+    }
+
+    $schema = array(
+        '@context'   => 'https://schema.org',
+        '@type'      => 'FAQPage',
+        'mainEntity' => array()
+    );
+
+    foreach ( $list_faq as $faq ) {
+        for( $i=0; $i<$faq['faq_list']; $i++ ) {
             $schema['mainEntity'][] = array(
                 '@type' => 'Question',
-                'name'  => $data['faq_question'],
+                'name'  => $faq['faq_list_' . $i . '_faq_question'],
                 'acceptedAnswer' => array(
                     '@type' => 'Answer',
-                    'text'  => $data['faq_answer'],
+                    'text'  => $faq['faq_list_' . $i . '_faq_answer'],
                 )
             );
         }
+    }
 
-        echo '<script type="application/ld+json">' . json_encode( $schema ) . '</script>';
-    });
+    echo '<script type="application/ld+json">' . json_encode( $schema ) . '</script>';
 }
-
-
+add_action( 'wp_head', 'bf_faq_generate_metadatas' );
