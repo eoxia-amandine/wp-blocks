@@ -34,7 +34,7 @@ endif;
 if ( have_rows( 'faq_list' ) ) : ?>
     <div <?php echo $anchor; ?>class="<?php echo esc_attr( $class_name ); ?>">
         <?php while ( have_rows( 'faq_list' ) ) : the_row(); ?>
-            <div class="bf-faq__main-container">
+            <div class="bf-faq__main-container <?php echo get_sub_field( 'faq_opened' ) ? 'bf-faq__active' : ''; ?>">
                 <div class="bf-faq__question-container">
                     <div class="bf-faq__question"><?php echo esc_html( get_sub_field( 'faq_question' ) ); ?></div>
                     <img class="bf-faq__question-plus" src="<?php echo esc_url( BF_FAQ_URL . '/assets/images/plus-solid.svg' ); ?>" />

@@ -13,7 +13,7 @@
      * @return  void
      */
     var initializeBlock = function( $block ) {
-        $block.find( '.bf-faq__answer' ).toggle();
+        $block.find( '.bf-faq__main-container:not(.bf-faq__active) .bf-faq__answer' ).toggle();
         $block.find( '.bf-faq__question-container' ).click(function() {
             $(this).closest('.bf-faq__main-container').toggleClass('bf-faq__active');
             $(this).closest('.bf-faq__main-container').find('.bf-faq__answer').slideToggle('fast');
