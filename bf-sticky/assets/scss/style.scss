@@ -1,0 +1,11 @@
+@import "admin";
+
+.bf-sticky {
+  position: fixed;
+  z-index: 900;
+  right: 0;
+  top: 20%;
+
+  transform: rotate(-90deg);
+  transform-origin: bottom right;
+}

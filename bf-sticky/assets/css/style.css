@@ -1,0 +1,32 @@
+.bf-sticky.is-admin {
+  border: 1px solid #000;
+  position: relative;
+  padding: 15px;
+  border-radius: 6px;
+  -webkit-transform: rotate(0);
+  transform: rotate(0);
+}
+.bf-sticky.is-admin::before {
+  display: block;
+  content: "BF STICKY";
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: #fff;
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.bf-sticky {
+  position: fixed;
+  z-index: 900;
+  right: 0;
+  top: 20%;
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  -webkit-transform-origin: bottom right;
+  transform-origin: bottom right;
+}
