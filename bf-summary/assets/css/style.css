@@ -18,6 +18,9 @@
   flex-wrap: wrap;
   z-index: 998;
 }
+.bf-summary-control + * {
+  margin-top: 0 !important;
+}
 .bf-summary-control .bf-summary-control__item {
   color: #fff;
   font-size: 16px;
